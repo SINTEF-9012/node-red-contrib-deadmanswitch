@@ -7,7 +7,7 @@
   "keywords": ["node-red"],
   "repository"   : {
       "type":"git",
-      "url":"https://github.com/node-red/node-red.git"
+      "url":"https://github.com/SINTEF-9012/node-red-contrib-deadmanswitch.git"
   },
   "node-red": {
     "nodes": {
