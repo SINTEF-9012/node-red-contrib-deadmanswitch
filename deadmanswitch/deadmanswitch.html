@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dead-man-switch',{
+        category: 'function',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""},
+            delay: {value: "5", required: true, validate: RED.validators.number()},
+            delayUnit: {value:"seconds"},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "timer.png",
+        label: function() {
+            return this.name||"dead-man-switch";
+        },
+        oneditprepare: function() {
+            $("#node-input-delay").spinner({min: 0});
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="dead-man-switch">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-delay"><i class="fa fa-clock-o"></i> Delay</label>
+        <input type="text" id="node-input-delay" style="text-align:end; width:50px !important">
+        <select id="node-input-delayUnit" style="width:200px !important">
+            <option value="milliseconds" data-i18n="delay.milisecs"></option>
+            <option value="seconds" data-i18n="delay.secs"></option>
+            <option value="minutes" data-i18n="delay.mins"></option>
+            <option value="hours" data-i18n="delay.hours"></option>
+            <option value="days" data-i18n="delay.days"></option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="dead-man-switch">
+    <p>A timeout message is triggered when no message is received for the specified delay.</p>
+</script>
