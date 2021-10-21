@@ -20,7 +20,8 @@ module.exports = function(RED) {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(function() {
         node.send({
-          payload: 'timeout'
+          payload: 'timeout',
+          deaddelay: this.delay + ' seconds'
         });
         timeoutId = 0;
         node.status({fill:"red",shape:"dot",text:"dead"});
